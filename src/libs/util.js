@@ -31,16 +31,25 @@ util.ajax = axios.create({
 });
 
 util.post = function (url, data) {
+    let token = localStorage.getItem('token')
+
     return util.ajax({
+        method: 'post',
         url: 'http://localhost:8888' + url,
-        method: 'post',//请求类型
-        data: data
+        data: data,
+        headers: {
+            'Content-Type': 'application/json',
+            'token': token
+        }
     })
     .then(response => {//成功
+        if(response.data.code === 204){ //未登录
+            location.href = '/login'
+        }
         return response;
     })
     .catch(error => {//失败
-        return error;
+        console.log(error)
     });
 }
 

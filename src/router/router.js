@@ -11,6 +11,14 @@ export const locking = {
     component: (resolve) => require(['@/views/locking/index.vue'], resolve)
 };
 
+export const login = {
+    path: '/login',
+    name: 'login',
+    meta: {
+        title: '登录页面'
+    },
+    component: (resolve) => require(['@/views/login/login.vue'], resolve)
+};
 
 
 
@@ -113,6 +121,7 @@ export const appRouter = [{
 
 
 export const routers = [
+    login,
     locking,
     ...otherRouter,
     ...appRouter

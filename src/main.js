@@ -13,7 +13,7 @@ import './assets/public.css';
 Vue.use(iView);
 
 
-new Vue({
+const app = new Vue({
     el: '#app',
     router: router,
     store: store,
