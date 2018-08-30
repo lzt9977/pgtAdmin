@@ -25,10 +25,9 @@ export default {
                 password: this.b
             })
             .then(res => {
-
-                    console.log(res.data)
                 if (res.data.code == 0) {
                     localStorage.setItem('token',res.data.data.token)
+                    this.$router.push('/home')
                 }
             })
             .catch(err => {
